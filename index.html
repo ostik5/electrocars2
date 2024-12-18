@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Електромобілі</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-panel">
+        <div class="language-panel">
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('uk')">Українська</button>
+        </div>
+        <div class="compare-panel">
+            <button type="button" onclick="showComparisonCatalog()">Порівняти автомобілі</button>
+        </div>
+    </div>
+
+    <div id="comparison" class="comparison-section">
+        <h2>Порівняння електромобілів</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Марка</th>
+                    <th>Модель</th>
+                    <th>Запас ходу (миль)</th>
+                    <th>Потужність (к.с.)</th>
+                    <th>Ціна</th>
+                </tr>
+            </thead>
+            <tbody id="comparison-body">
+                <!-- Дані для порівняння будуть вставлені динамічно -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="comparison-catalog" class="comparison-section" style="display: none;">
+        <h2>Виберіть автомобілі для порівняння</h2>
+        <form id="catalog-form">
+            <div class="catalog-item">
+                <input type="checkbox" id="tesla-model-s" value="Tesla Model S" data-range="405" data-power="1020" data-price="$94,990">
+                <label for="tesla-model-s">Tesla Model S</label>
+            </div>
+            <div class="catalog-item">
+                <input type="checkbox" id="nissan-ariya" value="Nissan Ariya" data-range="300" data-power="389" data-price="$43,000">
+                <label for="nissan-ariya">Nissan Ariya</label>
+            </div>
+            <div class="catalog-item">
+                <input type="checkbox" id="bmw-ix" value="BMW iX" data-range="324" data-power="516" data-price="$83,200">
+                <label for="bmw-ix">BMW iX</label>
+            </div>
+            <div class="catalog-item">
+                <input type="checkbox" id="volkswagen-id4" value="Volkswagen ID.4" data-range="260" data-power="201" data-price="$41,000">
+                <label for="volkswagen-id4">Volkswagen ID.4</label>
+            </div>
+            <div class="catalog-item">
+                <input type="checkbox" id="chevrolet-bolt" value="Chevrolet Bolt EV" data-range="259" data-power="200" data-price="$27,495">
+                <label for="chevrolet-bolt">Chevrolet Bolt EV</label>
+            </div>
+            <div class="catalog-item">
+                <input type="checkbox" id="rivian-r1t" value="Rivian R1T" data-range="314" data-power="754" data-price="$73,000">
+                <label for="rivian-r1t">Rivian R1T</label>
+            </div>
+            <button type="button" onclick="compareSelectedCars()">Порівняти вибрані автомобілі</button>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <button type="button" onclick="showSection('all')">Усі</button>
+        <button type="button" onclick="showSection('mark')">Марка</button>
+        <button type="button" onclick="showSection('history')">Історія</button>
+    </div>
+    <div id="all" class="content-section">
+        <h2>All Cars</h2>
+        
+        <div class="car-model">
+        <img src="fotos/S.jpg" alt="Tesla Model S" class="car-image">
+        <div class="car-info">
+        <h3>Model S</h3>
+        <p>Це седан представницького класу, що випускається компанією з 2012 року, з деякими оновленнями. Це перша модель автовиробника, яка почала випускатися масово. Станом на червень 2021 року доступна у двох версіях: Long Range, Plaid. З 2019 року всі версії цієї моделі оснащуються лише потужною батареєю максимальної ємності 100 кВт-год.</p>
+        <p>Model S визнана однією з найшвидших серійних електромобілів, здатною розігнатися від 0 до 100 км/год менше ніж за 2.5 секунди в версії Plaid. Крім того, цей автомобіль пропонує розкішний інтер'єр і передові технології, включаючи автопілот.</p>
+        </div>
+        </div>
+        
+        <div class="car-model">
+        <img src="fotos/model_3.jpg" alt="Tesla Model 3" class="car-image">
+        <div class="car-info">
+        <h3>Model 3</h3>
+        <p>Це компактний седан, що випускається компанією з 2017 року. Ця модель стала найпопулярнішою серед електромобілів завдяки своїй доступності та високій ефективності. Доступна у версіях Standard Range Plus, Long Range, Performance.</p>
+        <p>Model 3 здатна подолати відстань до 568 км на одному заряді (у версії Long Range) і пропонує сучасні системи безпеки та автопілот. Крім того, автомобіль має мінімалістичний дизайн інтер'єру з великим сенсорним дисплеєм.</p>
+        </div>
+        </div>
+        
+        <div class="car-model">
+        <img src="fotos/model_x.jpg" alt="Tesla Model X" class="car-image">
+        <div class="car-info">
+        <h3>Model X</h3>
+        <p>Це повнорозмірний SUV, що випускається компанією з 2015 року. Ця модель відома своїми дверима типу "крило сокола" та високим рівнем безпеки. Доступна у версіях Long Range, Plaid.</p>
+        <p>Model X пропонує до 7 місць для пасажирів і забезпечує відмінні показники дальності пробігу (до 580 км на одному заряді у версії Long Range). Серед інших особливостей — великий обсяг багажного відділення, сучасні системи автопілоту та безпеки.</p>
+        </div>
+        </div>
+        
+        <div class="car-model">
+        <img src="fotos/model_y.jpg" alt="Tesla Model Y" class="car-image">
+        <div class="car-info">
+        <h3>Model Y</h3>
+        <p>Це компактний SUV, що випускається компанією з 2020 року. Ця модель поєднує в собі найкращі якості Model 3 та Model X, забезпечуючи великий простір та високу ефективність. Доступна у версіях Long Range, Performance.</p>
+        <p>Model Y може вміщати до 7 пасажирів (у версії з третім рядом сидінь) і пропонує дальність пробігу до 505 км на одному заряді (у версії Long Range). Автомобіль також оснащений передовими системами безпеки та автопілотом.</p>
+        </div>
+        </div>
+        </div>
+        
+        </div>
+        <div id="mark" class="content-section" style="display: none;">
+        <h2>Mark</h2>
+        
+        <div class="content-tesla">
+        <div class="car-model">
+        <img src="fotos/Tesla.jpg" alt="Tesla Model S" class="car-image">
+        <div class="car-info">
+            <h3>Tesla</h3>
+            <li>Модель: Tesla Model S, Model 3, Model X, Model Y, Cybertruck</li>
+            <li>Автопілот: Tesla пропонує передову систему автономного водіння з можливостями Full Self-Driving (FSD).</li>
+            <li>Продуктивність: Tesla Model S Plaid може розігнатися від 0 до 60 миль за 1.99 секунди, що робить її одним з найшвидших серійних автомобілів.</li>
+            <li>Інтер'єр: Мінімалістичний дизайн з великим центральним сенсорним екраном та оновленням програмного забезпечення через інтернет (OTA).</li>
+        </div>
+        </div>
+        </div>
+        
+        <div class="content-nissan">
+        <div class="car-model">
+        <img src="fotos/Nissan.jpg" alt="Nissan Ariya" class="car-image">
+        <div class="car-info">
+            <h3>Nissan</h3>
+            <li>Продуктивність: Nissan Ariya пропонує різні варіанти батарей з запасом ходу до 300 миль.</li>
+            <li>Інтер'єр: Просторий і сучасний дизайн інтер'єру з двома сенсорними екранами.</li>
+            <li>Інновації: Пропонується з переднім або повним приводом, а також системою ProPILOT Assist для напівавтономного водіння.</li>
+        </div>
+        </div>
+        </div>
+        
+        <div class="content-bmw">
+        <div class="car-model">
+        <img src="fotos/BMW.jpg" alt="BMW iX" class="car-image">
+        <div class="car-info">
+            <h3>BMW</h3>
+            <li>Продуктивність: BMW iX має запас ходу до 300 миль і потужність до 516 к.с.</li>
+            <li>Інтер'єр: Розкішний інтер'єр з високоякісними матеріалами та інтелектуальними функціями.</li>
+            <li>Технології: Високотехнологічна панель приладів, HUD (head-up display), і система iDrive з підтримкою штучного інтелекту.</li>
+        </div>
+        </div>
+        </div>
+        
+        <div class="content-volkswagen">
+        <div class="car-model">
+        <img src="fotos/Volkswagen.jpg" alt="Volkswagen ID.4" class="car-image">
+        <div class="car-info">
+            <h3>Volkswagen</h3>
+            <li>Екологічність: Використання перероблених матеріалів в інтер'єрі, акцент на екологічність виробництва.</li>
+            <li>Запас ходу: Volkswagen ID.4 має запас ходу до 260 миль на одній зарядці.</li>
+            <li>Дизайн: Аеродинамічний дизайн з простором для пасажирів і багажу, велика увага до комфорту.</li>
+        </div>
+        </div>
+        </div>
+        
+        <div class="content-chevrolet">
+        <div class="car-model">
+        <img src="fotos/Chevrolet.jpg" alt="Chevrolet Bolt" class="car-image">
+        <div class="car-info">
+            <h3>Chevrolet</h3>
+            <li>Ціна: Chevrolet Bolt EV та Bolt EUV є одними з найбільш доступних електрокарів на ринку.</li>
+            <li>Інтер'єр: Просторий салон з сучасними технологіями, включаючи великий сенсорний екран та інтелектуальні функції безпеки.</li>
+            <li>Зарядка: Bolt EUV підтримує швидку зарядку, що дозволяє отримати до 100 миль за 30 хвилин зарядки.</li>
+        </div>
+        </div>
+        </div>
+        
+        <div class="content-rivian">
+        <div class="car-model">
+        <img src="fotos/Rivian.jpg" alt="Rivian R1T" class="car-image">
+        <div class="car-info">
+            <h3>Rivian</h3>
+            <li>Продуктивність: Rivian R1T та R1S мають потужність до 750 к.с. і можуть буксирувати до 11,000 фунтів (R1T).</li>
+            <li>Інтер'єр: Розкішний і функціональний інтер'єр з багатьма місцями для зберігання та інноваційними рішеннями для подорожей.</li>
+            <li>Позашляхові можливості: Висока прохідність завдяки адаптивній підвісці та водонепроникності для подолання водних перешкод.</li>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        
+        
+        
+        
+        </div>
+        <div id="history" class="content-section" style="display: none;">
+        <h2>History</h2>
+        
+        
+        
+        <div class="timeline">
+        <div class="timeline-item">
+            <img src="steam_car.jpg" alt="Steam Car" class="history-image">
+            <div class="timeline-content">
+                <h3>First Steam Cars</h3>
+                <p>Перші парові автомобілі з'явилися у XVIII столітті. Вони використовувалися переважно для військових потреб та перевезення вантажів.</p>
+                <p>Парова тяга дозволяла досягати відносно високих швидкостей для свого часу, але такі автомобілі були громіздкими та вимагали багато часу на розігрів парового котла.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <img src="combustion_engine.jpg" alt="Internal Combustion Engine" class="history-image">
+            <div class="timeline-content">
+                <h3>Internal Combustion Engine</h3>
+                <p>Винайдення двигуна внутрішнього згоряння в XIX столітті стало переломним моментом в історії автомобілебудування. Цей тип двигуна досі використовується в більшості сучасних автомобілів.</p>
+                <p>Німецькі інженери Карл Бенц і Готліб Даймлер були одними з перших, хто розробив автомобілі з двигунами внутрішнього згоряння в 1880-х роках. Перший комерційно успішний автомобіль, Benz Patent-Motorwagen, був запущений у виробництво в 1885 році.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <img src="electric_car.jpg" alt="Electric Car" class="history-image">
+            <div class="timeline-content">
+                <h3>Electric Cars</h3>
+                <p>На початку 21 століття відбувся великий прорив в галузі електромобілів завдяки компанії Tesla. Електромобілі стали популярними завдяки своїй ефективності та екологічності.</p>
+                <p>Ілон Маск і компанія Tesla зіграли ключову роль у відродженні інтересу до електромобілів. Завдяки їхнім інноваціям, такі моделі як Tesla Roadster, Model S, Model 3, Model X та Model Y стали відомими у всьому світі, пропонуючи високу продуктивність, тривалий запас ходу та передові технології.</p>
+            </div>
+        </div>
+        <!-- Додавання роздільного блоку -->
+        <div class="timeline-separator"></div>
+        <div class="timeline-item">
+            <img src="elec.jpg" alt="Electric Car" class="history-image">
+            <div class="timeline-content">
+                <h3>First Electric Cars</h3>
+                <p>Історія першого автомобіля почалася з XVIII століття, а саме появою перших парових машин, які використовували для військових потреб. Зацікавленість у машинах приводить до винайдення нових технологій та їх швидкого розвитку на початку XIX та впродовж всього XX століття.</p>
+                <p>У цей час було винайдено двигун внутрішнього згоряння, повний привод, систему впорскування палива, ручні гальма, коробку передач та навіть електромобіль, який через замалу популярність повністю зник з поля зору до початку XXI століття, коли знову виникла зацікавленість в екологічно чистому транспорті. Самі ж автомобілі стали використовувати для перевезення пасажирів та набули великої популярності у всьому світі, особливо завдяки виробникам «Великої трійки» (GM, Ford і Chrysler).</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    <script>
+        function changeLanguage(language) {
+            // Функціональність зміни мови залишається незмінною
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function showComparisonCatalog() {
+            document.getElementById('comparison').style.display = 'none';
+            document.getElementById('comparison-catalog').style.display = 'block';
+        }
+
+        function compareSelectedCars() {
+            const selectedCars = Array.from(document.querySelectorAll('#catalog-form input[type="checkbox"]:checked'));
+            const comparisonBody = document.getElementById('comparison-body');
+            comparisonBody.innerHTML = ''; // Очищення існуючих даних порівняння
+
+            selectedCars.forEach(car => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${car.value}</td>
+                    <td>${car.id.replace(/-/g, ' ')}</td>
+                    <td>${car.dataset.range}</td>
+                    <td>${car.dataset.power}</td>
+                    <td>${car.dataset.price}</td>
+                `;
+                comparisonBody.appendChild(row);
+            });
+
+            // Показати секцію порівняння і приховати каталог
+            document.getElementById('comparison').style.display = 'block';
+            document.getElementById('comparison-catalog').style.display = 'none';
+        }
+        function showSection(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+    document.getElementById(sectionId).style.display = 'block';
+}
+// Об'єкт для зберігання тексту на різних мовах
+const translations = {
+    en: {
+        compareButton: "Compare Cars",
+        sectionTitle: "Electric Car Comparison",
+        selectCars: "Select Cars to Compare",
+        compareSelected: "Compare Selected Cars",
+        mark: "Make",
+        history: "History",
+        all: "All",
+    },
+    uk: {
+        compareButton: "Порівняти автомобілі",
+        sectionTitle: "Порівняння електромобілів",
+        selectCars: "Виберіть автомобілі для порівняння",
+        compareSelected: "Порівняти вибрані автомобілі",
+        mark: "Марка",
+        history: "Історія",
+        all: "Усі",
+    }
+};
+
+// Функція для зміни мови
+function changeLanguage(language) {
+    if (!translations[language]) return; // Перевірка, чи є переклад для обраної мови
+
+    // Оновлення тексту на сторінці
+    document.querySelector('.compare-panel button').textContent = translations[language].compareButton;
+    document.querySelector('#comparison h2').textContent = translations[language].sectionTitle;
+    document.querySelector('#comparison-catalog h2').textContent = translations[language].selectCars;
+    document.querySelector('#catalog-form button').textContent = translations[language].compareSelected;
+    
+    // Оновлення тексту для кнопок у панелі
+    document.querySelectorAll('.button-container button')[0].textContent = translations[language].all;
+    document.querySelectorAll('.button-container button')[1].textContent = translations[language].mark;
+    document.querySelectorAll('.button-container button')[2].textContent = translations[language].history;
+}
+
+    </script>
+</body>
+</html>

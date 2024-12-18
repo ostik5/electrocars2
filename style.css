@@ -1,0 +1,309 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.mak {
+    width: 100%;
+    max-width: 1380px;
+    margin: 20px auto;
+    background-color: #006400;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    text-align: left;
+}
+.car {
+    text-align: left;
+    font-family: monospace;
+    font-size: 10px;
+}
+
+.vit {
+    font-size: xx-large;
+    color: white;
+    margin: 0 20px 20px 20px;
+}
+
+.mash {
+    width: 400px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.text {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.button {
+    background-color: #008000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #005500;
+}
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.content-section {
+    width: 90%;
+    max-width: 1380px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.car-model {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.car-image {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.car-info {
+    flex: 1;
+}
+
+.history-timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.history-image {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.history-image:hover {
+    transform: scale(1.1);
+}
+
+.timeline-content {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+/* Стиль для роздільного блоку */
+.timeline-separator {
+    height: 20px;
+    background-color: transparent;
+}
+
+
+.timeline-content:hover {
+    background-color: #f8f8f8;
+}
+/* Панелька для вибору мови і порівняння */
+.top-panel {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+.top-panel .language-panel,
+.top-panel .compare-panel {
+    display: flex;
+    align-items: center;
+}
+
+.top-panel button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+}
+
+.language-panel button {
+    background-color: #007bff;
+}
+
+.language-panel button:hover {
+    background-color: #0056b3;
+}
+
+.compare-panel button {
+    background-color: #28a745;
+}
+
+.compare-panel button:hover {
+    background-color: #218838;
+}
+
+/* Основний контент */
+.comparison-section {
+    display: none;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 10px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.comparison-table th, .comparison-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.comparison-table th {
+    background-color: #333;
+    color: white;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Кнопки для секцій */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.button-container button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
+
+.button-container button:nth-child(1) {
+    background-color: #007bff;
+}
+
+.button-container button:nth-child(2) {
+    background-color: #ff5722;
+}
+
+.button-container button:nth-child(3) {
+    background-color: #009688;
+}
+
+.button-container button:hover {
+    opacity: 0.8;
+}
+/* Секція каталогу */
+.comparison-section {
+    display: none;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 10px;
+}
+
+.catalog-item {
+    margin-bottom: 10px;
+}
+
+/* Кнопка форми каталогу */
+.catalog-item button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.catalog-item button:hover {
+    background-color: #218838;
+}
+
+/* Адаптація для мобільних пристроїв */
+@media (max-width: 768px) {
+    .car-model {
+        flex-direction: column;
+        text-align: center;
+    }
+    .car-image {
+        margin: 0 auto 20px auto;
+    }
+    .top-panel {
+        flex-direction: column;
+        align-items: center;
+    }
+    .top-panel button {
+        margin: 5px 0;
+    }
+    .button-container {
+        flex-direction: column;
+    }
+    .button-container button {
+        margin: 10px 0;
+    }
+}
+
+/* Ефекти для кнопок */
+.button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
+/* Анімації для таблиць */
+.comparison-table {
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
